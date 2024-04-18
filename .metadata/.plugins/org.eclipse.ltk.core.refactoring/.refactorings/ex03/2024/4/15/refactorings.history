@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;am.ScoreManagement.java&apos; to &apos;GradeData.java&apos;&#x0D;&#x0A;- Original project: &apos;ex03&apos;&#x0D;&#x0A;- Original element: &apos;am.ScoreManagement.java&apos;&#x0D;&#x0A;- Renamed element: &apos;am.GradeData.java&apos;" description="Rename compilation unit &apos;ScoreManagement.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;am{ScoreManagement.java" name="GradeData.java" references="false" stamp="1712815780851" version="1.0"/>
+</session>

@@ -1,0 +1,30 @@
+package professor;
+import java.util.*;
+import java.sql.*;
+
+public class ProDAO {
+	Connection con = Database.CON;
+	//교수목록
+	public ArrayList<ProVO> list(){
+		ArrayList<ProVO> list = new ArrayList<ProVO>();
+		try {
+			String sql = "Selet * from professors";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				ProVO vo = new ProVO();
+				vo.setPcode(rs.getString("pcode"));
+				vo.setPname(rs.getString("pname"));
+				vo.setDept(rs.getString("dept"));
+				vo.setHiredate(rs.getString("hiredate"));
+				vo.setTitle(rs.getString("title"));
+				vo.setSalary(rs.getInt("salary"));
+				list.add(vo);
+			}
+			
+		}catch(Exception e) {
+			System.out.println("교수 목록: "+e.toString());
+		}
+		return list;
+	}
+}

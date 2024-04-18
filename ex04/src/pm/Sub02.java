@@ -1,0 +1,160 @@
+package pm;
+import java.io.*;
+import java.util.*;
+
+import am.Car;
+import am.Juso;
+
+public class Sub02 {
+	static Scanner scanner = new Scanner(System.in);
+	
+	public static void delete() {
+		
+		System.out.println("***************주소삭제***************");
+		System.out.print("삭제할 이름>");
+		String such = scanner.nextLine();
+		File file = new File("c:/수업/data/java/address.txt");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line="";
+			String[] items=new String[4];
+			ArrayList<String[]>juso = new ArrayList<>();
+	
+			boolean find=false;
+			while( (line=reader.readLine() )!= null ) {
+				items=line.split(",");
+				juso.add(items);
+				if( such.equals(items[1])) {
+					System.out.printf("%s\t%s\t%s\t%s\n",
+							items[0],items[1],items[2],items[3]);
+					System.out.println("삭제하시겠습니까? (Y/y)");
+					String ans = scanner.nextLine();
+					if(ans.equals("Y")||ans.equals("y")) {
+					juso.remove(items);
+					find=true;
+					System.out.println("삭제완료!");
+					}else {System.out.println("삭제취소!");}
+				}
+			}
+			reader.close();
+			
+			
+			if(!find) {
+				System.out.println(such+" 이(가) 존재하지 않습니다.");
+			}
+			
+			FileWriter writer = new FileWriter(file, false);
+			Juso newJuso = new Juso();
+
+			for(int i=0; i<juso.size(); i++) {
+				String[] data = juso.get(i);
+				
+				newJuso.setNo(i+1);
+				newJuso.setName(data[1]);
+				newJuso.setPhone(data[2]);
+				newJuso.setAddress(data[3]);
+		
+				writer.write(newJuso.getNo()+","+newJuso.getName()+","+newJuso.getPhone()+","+newJuso.getAddress()+"\n");
+			}
+			writer.flush();
+			writer.close();
+			run();//목록출력
+			
+		} catch (Exception e) {
+			System.out.println("오류:"+e.toString());
+		}
+	}
+	
+	public static void read() {
+
+		System.out.println("***************주소조회***************");
+		System.out.print("조회할 이름>");
+		String such = scanner.nextLine();
+		File file = new File("c:/수업/data/java/address.txt");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line="";
+			String[] items=new String[4];
+			boolean find=false;
+			while( (line=reader.readLine() )!= null ) {
+				items=line.split(",");
+				if( such.equals(items[1])) {
+					System.out.printf("%s\t%s\t%s\t%s\n",
+							items[0],items[1],items[2],items[3]);
+					find=true;
+				}
+			}
+			if(!find) {
+				System.out.println(such+" 이(가) 존재하지 않습니다.");
+			}
+		} catch (Exception e) {
+			System.out.println("오류:"+e.toString());
+		}
+		
+	}
+	
+	
+	public static void insert() {
+		System.out.println("***************주소등록***************");
+		File file = new File("c:/수업/data/java/address.txt");
+		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line="";
+			int count=0;
+			while( (line=reader.readLine() )!= null ){ 
+				count++;}
+			reader.close();
+			
+			FileWriter writer = new FileWriter(file, true);
+			Juso juso = new Juso();
+//			Juso last= juso.get( juso.size()-1 );
+//			int newNo = ( last.getNo() )+1; 
+			System.out.println("번호>" + (count+1 ));
+			juso.setNo(count+1);
+			System.out.print("이름>");
+			juso.setName(scanner.nextLine());
+			System.out.print("전화번호>");
+			juso.setPhone(scanner.nextLine());
+			System.out.print("주소>");
+			juso.setAddress(scanner.nextLine());
+
+			writer.write(juso.getNo()+","+juso.getName()+","+juso.getPhone()+","+juso.getAddress()+"\n");
+			writer.flush();
+			writer.close();
+			System.out.println("등록완료!");
+			run();//목록출력
+			
+			
+		} catch (IOException e) {
+			System.out.println("파일이 존재하지 않습니다.");
+		}
+	}
+	
+	public static void run() {
+		File file = new File("c:/수업/data/java/address.txt");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line = "";
+			String[] items=new String[4];
+//			ArrayList<Juso> jusoes= new ArrayList<>();
+			//while((line= reader.readLine())!=null) -> 
+			while((line= reader.readLine())!=null) {
+				items=line.split(",");
+				Juso juso=new Juso();
+				juso.setNo(Integer.parseInt(items[0]));
+				juso.setName(items[1]);
+				juso.setPhone(items[2]);
+				juso.setAddress(items[3]);
+				
+//				jusoes.add(juso);
+//				jusoes.set(0, juso)
+				
+				System.out.printf("%d\t%s\t%s\t%s\n",
+						juso.getNo(),juso.getName(),juso.getPhone(),juso.getAddress());
+			}
+		}catch(Exception e){
+			System.out.println("오류:"+e.toString());
+		}
+	}
+}

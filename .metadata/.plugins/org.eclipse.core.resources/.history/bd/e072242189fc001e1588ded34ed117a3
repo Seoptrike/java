@@ -1,0 +1,78 @@
+package product;
+
+import java.util.ArrayList;
+import java.sql.*;
+
+public class ProductDAO implements ProductInter/*Data access object (데이터 접근 객체)*/{
+	Connection con = Database.CON;
+	
+	@Override
+	public ArrayList<ProductVO> list() {
+		ArrayList<ProductVO> list = new ArrayList<ProductVO>();
+		try {
+			String sql="select * from product";
+			PreparedStatement ps =con.prepareCall(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				ProductVO vo =new ProductVO();
+				vo.setCode(rs.getString("code"));
+				vo.setName(rs.getString("name"));
+				vo.setPrice(rs.getInt("price"));
+				list.add(vo);
+				}
+		}catch(Exception e) {
+			System.out.println("상품목록:"+e.toString());
+		}
+		return list;
+	}
+
+	@Override
+	public void insert(ProductVO vo) {
+		try {
+			String sql = "insert into product(code,name,price)";
+					sql+=" values(?,?,?)";
+			PreparedStatement ps =con.prepareCall(sql);
+			ps.setString(1, vo.getCode());
+			ps.setString(2, vo.getName());
+			ps.setInt(3, vo.getPrice());
+			ps.execute();
+			
+		}catch(Exception e) {
+			System.out.println("상품등록:"+e.toString());
+		}
+		
+	}
+
+	@Override
+	public void delete(String code) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(ProductVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ProductVO read(String code) {
+		ProductVO vo = new ProductVO();
+		try {
+			String sql ="select * from product where code=?";
+			PreparedStatement ps =con.prepareCall(sql);
+			ps.setString(1, code);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				vo =new ProductVO();
+				vo.setCode(rs.getString("code"));
+				vo.setName(rs.getString("name"));
+				vo.setPrice(rs.getInt("price"));
+				}
+		}catch(Exception e) {
+			System.out.println("상품조회:"+e.toString());
+		}
+		
+		return vo;
+	}
+}

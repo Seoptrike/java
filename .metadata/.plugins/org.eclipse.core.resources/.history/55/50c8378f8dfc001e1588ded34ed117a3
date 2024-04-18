@@ -1,0 +1,90 @@
+package product;
+import java.sql.Connection;
+import java.util.*;
+import product.Database;
+
+public class Main {
+	public static void main(String[] args) {
+		boolean run = true;
+		Scanner scanner = new Scanner(System.in);
+		Connection con = Database.CON;
+		ProductDAO dao = new ProductDAO();
+		
+		while(run) {
+			System.out.println("\n=========================================");
+			System.out.println("1.상품등록|2.상품조회|3.상품목록|4.상품삭제|0.종료");
+			System.out.println("=========================================");
+			System.out.println("선택>");
+			String menu= scanner.nextLine();
+			switch(menu) {
+			case "1" :
+				ProductVO vo1 = new ProductVO();
+				vo1.setCode(dao.leastCode());				
+				System.out.println("등록할 상품코드>" + vo1.getCode() );
+				System.out.print("등록할 상품이름>");
+				String newName = scanner.nextLine();
+				if(newName=="") {
+					System.out.println("상품등록을 취소합니다.");
+					break;
+				}else {
+					vo1.setCode(newName);
+				}
+				while(true) {
+					System.out.print("등록할 상품가격>");
+					String newPrice = scanner.nextLine();
+					if(newPrice=="") {
+						System.out.println("상품등록을 취소합니다.");
+						break;
+					}	
+					if( isNumber(newPrice) ){
+						vo1.setPrice(Integer.parseInt(newPrice));
+						System.out.println("등록완료!");
+						break;
+					}
+				}
+				break;
+			case "2" :
+				while(true) {
+					System.out.print("조회할 상품코드>");
+					String suchCode = scanner.nextLine();
+					if(suchCode=="") {
+						System.out.println("조회를 취소합니다.");
+						break;
+					}
+					ProductVO vo2 = dao.read(suchCode);
+					if(vo2.getCode()==null) {
+						System.out.println(suchCode+" 번 상품이 없습니다");
+					}else {
+						System.out.println(vo2.toString());
+					}
+				}
+				break;
+			case "3" :
+				ArrayList<ProductVO> array =dao.list();
+				for(ProductVO vo : array) {
+					System.out.println(vo.toString());
+				}
+				break;
+			case "4" :
+				break;
+			case "0" :
+				System.out.println("프로그램을 종료합니다.");
+				run = false;
+				break;
+			default:
+				System.out.println("0~4 메뉴를 입력하세요!");
+				break;
+			}//switch	
+		}//while
+	}//method
+	
+	public static boolean isNumber(String str) {
+		try {
+			Integer.parseInt(str);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+	}
+}
+

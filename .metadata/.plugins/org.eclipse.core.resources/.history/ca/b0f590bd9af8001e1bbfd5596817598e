@@ -1,0 +1,32 @@
+package pm;
+
+import java.io.*;
+import java.util.*;
+import am.Car;
+
+public class Sub01 {
+	public static void run() {
+		File file= new File("c:/수업/data/java/car.txt");
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line="";
+			StringTokenizer st=null;
+			
+			while(  (line=reader.readLine())!=null ) {
+				st=new StringTokenizer(line,",");
+				int no = Integer.parseInt( st.nextToken( ));
+				String company = st.nextToken();
+				String model = st.nextToken();
+				String color = st.nextToken();
+				int distance = Integer.parseInt(st.nextToken());
+				String date = st.nextToken();
+				
+				Car car= new Car(no,company,model,color,distance,date);
+				System.out.println(car.toString());
+				
+			}
+		}catch(Exception e) {
+			System.out.println("오류:" +e.toString());
+		}
+	}
+}

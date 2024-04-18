@@ -1,0 +1,16 @@
+package am;
+
+public class Sub02 {
+	public static void run() {
+		System.out.println("클래스란");
+		Student s1= new Student(); //s1이라는 Student(class)을 만들었다
+		s1.no="100";
+		s1.name="홍길동";
+		s1.address="인천";
+		s1.phone="010-1010-1010";
+		s1.print();
+		
+		Student s2 = new Student("101","이순신","",""); //생성자 2번을 가지고 생성한것
+		s2.print();
+	}	
+}

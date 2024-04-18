@@ -1,0 +1,55 @@
+package juso;
+
+import java.io.*;
+import java.util.*;
+
+public class JusoDAO { //DAO = Data Access Object;
+	File file = new File("C:/수업/data/java/ex05/juso.txt");
+	
+	//주소 목록 출력을 위한 method;
+	public ArrayList<Juso> list(){
+		ArrayList<Juso> array = new ArrayList<Juso>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line = "";
+			while( (line = reader.readLine()) != null ){
+				String[] items=line.split(",");
+				
+				Juso juso=new Juso();
+				juso.setNo( Integer.parseInt(items[0]));
+				juso.setName(items[1]);
+				juso.setPhone(items[2]);
+				juso.setAddress(items[3]);
+				
+				array.add(juso);
+				
+				
+			}
+		}catch(Exception e) {
+			System.out.println("주소 목록:"+e.toString());
+		}
+		return array;
+	}
+	
+	//이름 조회
+	public Juso read(String name) {
+		Juso juso = new Juso();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line="";
+			while((line = reader.readLine()) != null) {
+				String[] items=line.split(",");
+				if(items[1].equals(name)) {
+					juso.setNo(Integer.parseInt(items[0]));
+					juso.setName(items[1]);
+					juso.setPhone(items[2]);
+					juso.setAddress(items[3]);	
+				}
+			}
+		}catch(Exception e){
+			System.out.println("이름 조회:"+e.toString());
+		}
+		
+		return juso;
+	}
+}

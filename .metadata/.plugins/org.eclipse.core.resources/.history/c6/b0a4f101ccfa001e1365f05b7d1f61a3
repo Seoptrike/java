@@ -1,0 +1,9 @@
+package juso;
+
+public class Juso {
+	private int no;
+	private String name;
+	private String phone;
+	private String address;
+}
+

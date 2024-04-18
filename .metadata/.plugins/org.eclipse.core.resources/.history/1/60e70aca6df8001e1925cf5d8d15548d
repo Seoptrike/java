@@ -1,0 +1,29 @@
+package am;
+
+import java.util.*;
+
+public class Car {
+	//filed
+	String company;
+	String model;
+	String color;
+	int distance;
+	String date;
+	
+	//기본생성자
+	
+	public Car() {}
+	
+	//메소드
+	
+	public void print(){
+		System.out.println("---------------------------");
+		System.out.println("제조사: " + company);
+		System.out.println("모델명: " + model);
+		System.out.println("색상: " + color);
+		System.out.println("주행거리: " + distance);
+		System.out.println("연식: " + date);
+		System.out.println("---------------------------");
+		System.out.println("");
+	}
+}

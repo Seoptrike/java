@@ -1,0 +1,76 @@
+package pm;
+import java.util.*;
+
+public class Sub01 {
+	public static void run() {
+		boolean run= true;
+		Scanner scanner= new Scanner(System.in);
+		ArrayList<Sale> sales = new ArrayList<>();
+		Sale s1 = new Sale();
+		s1.code="100";
+		s1.name="냉장고";
+		s1.price=350;
+		s1.qnt=15;
+		sales.add(s1);
+		
+		Sale s2= new Sale("101","세탁기",270,25);
+		sales.add(s2);
+		
+		while(run) {
+			System.out.println("\n\n---------------------------------------------");
+			System.out.println("1.매출등록|2.매출목록|3.상품조회|4.상품삭제|0.종료");
+			System.out.println("---------------------------------------------");
+			System.out.print("선택>");
+			String menu=scanner.nextLine();
+			switch(menu) {
+				case"1":
+					Sale s3= new Sale();
+					System.out.println("상품코드>");
+					s3.code = scanner.nextLine();
+					System.out.println("상품이름>");
+					s3.name = scanner.nextLine();
+					System.out.println("상품가격>");
+					s3.price =Integer.parseInt( scanner.nextLine() );
+					System.out.println("상품수량>");
+					s3.qnt =Integer.parseInt( scanner.nextLine() );	
+					
+					sales.add(s3);
+					System.out.println("상품들록완료!");
+					break;
+				case"2":
+					int total=0;
+					int sumQnt=0;
+					for(Sale s:sales) {
+						total = total+ s.sum();
+						sumQnt = sumQnt + s.qnt;
+						s.printLand();
+					}
+					System.out.println("---------------------------------------------");
+					System.out.printf("총 판매수량: %d\n총 판매금액: %,d만원\n",sumQnt,total);
+					System.out.println("---------------------------------------------");
+					System.out.println(sales.size()+" 개 상품이 존재합니다.");
+					break;
+				case"3":
+					System.out.println("조회 할 상품명");
+					String suchName=scanner.nextLine();
+					boolean find =false;
+					for(Sale s:sales) {
+						if(s.name.equals(suchName)) {
+							s.printPort();
+							find = true;
+						}
+					}
+					if(!find) System.out.println(suchName+" 상품이 존재하지 않습니다.");
+					break;
+				case"4":
+					break;
+				case"0":
+					run=false;
+					break;
+				default:
+					System.out.println("0~4번 메뉴를 선택하세요!");
+			}//switch
+		}//while
+		System.out.println("프로그램을 종료합니다.");
+	}//method
+}//class

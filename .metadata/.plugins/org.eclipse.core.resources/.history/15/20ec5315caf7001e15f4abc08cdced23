@@ -1,0 +1,24 @@
+package am;
+
+
+public class GradeData {
+	
+	String name;
+	int kor;
+	int eng;
+	int mat;
+	
+
+
+
+	public GradeData(String name, int kor, int eng, int mat ) {
+		this.name = name;
+		this.kor = kor;
+		this.eng =eng;
+		this.mat = mat;	
+	}
+	
+	
+}
+
+

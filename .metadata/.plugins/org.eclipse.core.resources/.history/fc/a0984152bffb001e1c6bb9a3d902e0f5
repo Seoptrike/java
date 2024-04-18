@@ -1,0 +1,64 @@
+package professor;
+import java.util.*;
+import java.sql.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+			boolean run = true;
+			Scanner scanner = new Scanner(System.in);
+			Connection con = Database.CON;
+			ProDAO dao = new ProDAO();
+			while(run) {
+				System.out.println("\n=========================================");
+				System.out.println("1.등록|2.조회|3.목록|4.삭제|5.수정|0.종료");
+				System.out.println("=========================================");
+				System.out.print("선택>");
+				String menu= scanner.nextLine();
+				switch(menu) {
+					case "1" :
+						ProVO vo = new ProVO();
+						int code = dao.getCode();
+						System.out.println("교수코드>"+ code);
+						vo.setPcode(String.valueOf(code));;
+					
+						System.out.print("교수이름>");
+						String pname = scanner.nextLine();
+						if(pname=="") {
+							System.out.println("등록을 취소합니다.");
+							break;
+						}else {
+						vo.setPname(pname);
+						}
+						dao.insert(vo);
+						System.out.println("교수등록 완료!");
+						break;
+					case "2" :
+						break;
+					case "3" : //목록
+						for(ProVO v: dao.list()) {
+							String date = "";
+							if(v.getHiredate() != null) {
+								date = v.getHiredate().substring(0,10);
+							}
+							System.out.printf("%s\t%s\t%s\t%s\t%-10s\t%,d원\n",
+									v.getPcode(),v.getPname(),v.getDept(),v.getTitle(),date,v.getSalary());
+						}
+						break;
+					case "4" :
+						break;
+					case "5" :
+						break;
+					case "0" :
+						System.out.println("프로그램을 종료합니다.");
+						run = false;
+						break;
+					default:
+						System.out.println("0~4 메뉴를 입력하세요!");
+						break;
+				}//switch	
+			}//while
+		}//method
+
+	}
+
