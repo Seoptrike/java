@@ -132,3 +132,86 @@ where persons/count(scode) >=0.3;
 
 select lcode from enrollments group by lcode 
 having count(*) >= (select count(*) * 0.3 from students);
+
+/*'데이터베이스'를 강의하는 교수명, 이 과목을 수강신청 한 학생들의 학과, 이름, 성적을 검색하시오.*/
+
+/*학생들의 학과, 학생이름, 지도교수이름을 검색하시오.*/
+select s.dept , sname , p.pname, p.dept
+from professors p, students s
+where p.pcode = s.advisors;
+select* from students where advisor in ( select pcode from professors);
+/*강좌번호, 강좌명, 교수이름을 검색하시오.*/
+select c.lcode , c.lname , p.pname
+from professors p, courses c
+where p.pcode = c.instructor;
+/*학번, 학생이름, 학생들이 수강신청 한 강좌번호, 수강신청일을 검색하시오*/
+select s.scode, s.sname, e.lcode, e.edate
+from students s, enrollments e
+where s.scode = e.scode;
+/*학번, 학생들이 수강신청 한 강좌번호, 강좌명, 성적을 검색하시오.*/
+select e.scode, c.lcode, c.lname, e.grade
+from courses c, enrollments e
+where c.lcode = e.lcode
+order by grade desc;
+/*'이병렬'과 교수가 지도하는 학생들의 이름, 학년, 생년월일을 검색하시오*/
+select sname, year, birthday
+from students s,professors p
+where s.advisor = p.pcode and pname= '이병렬';
+/*'98/03/03'에 수강신청 한 학생들의 학번, 학생이름, 강좌번호를 검색하시오.*/
+select s.scode, s.sname, e.lcode
+from students s ,enrollments e
+where s.scode = e.scode and e.edate = '98/03/03';
+/*'전산'과 교수들이 지도하는 학생들의 이름, 학년, 생년월일을 검색하시오.*/
+select s.sname, s.year, s.birthday
+from professors p , students s
+where p.pcode=s.advisor and p.dept = '전산';
+/*자료구조'를 강의하는 교수의 학과명, 교수 명을 검색하시오.*/
+select p.dept , p.pname
+from professors p , courses c
+where p.pcode = c.instructor and c.lname = '자료구조';
+/*'파일처리론'을 수강신청 한 학생들의 학번, 수강신청일, 점수를 검색하시오.*/
+select s.scode, e.edate , e.grade
+from students s ,enrollments e,courses c
+where s.scode=e.scode and c.lcode=e.lcode and c.lname='파일처리론';
+/*'자료구조' 과목을 수강신청 한 학생들의 학과, 학생이름, 성적을 검색하시오.*/
+select s.dept,s.sname, e.grade
+from students s, enrollments e, courses c
+where s.scode = e.scode and e.lcode = c.lcode and c.lname = '자료구조';
+/*'전자'과 학생들의 학번, 학생이름, 수강신청 한 강좌번호, 강좌 명, 성적을 검색하시오.*/
+select s.scode,s.dept,s.sname,e.lcode,c.lname,e.grade
+from students s, courses c, enrollments e
+where s.scode=e.scode and c.lcode=e.lcode and s.dept='전자';
+/*'파일처리론'을 강의하는 교수의 이름, 이 교수가 지도하는 학생들의 학번, 학생명을 검색하시오.*/
+select p.pname, s.scode, s.sname
+from professors p, students s , courses c
+where p.pname = s.advisor and c.instructor=p.pcode and lname='파일처리론';
+/*'데이터베이스'를 강의하는 교수명, 이 과목을 수강신청 한 학생들의 학과, 이름, 성적을 검색하시오.*/
+select p.pname, s.dept, s.sname, e.grade
+from professors p, students s, enrollments e, courses c
+where p.pcode = c.instructor and s.scode=e.scode and c.lcode=e.lcode and lname= '데이터베이스' ;
+/*성적이 80점 이상인 학생들의 학번, 학생이름, 강좌번호, 강좌명, 담당교수 명을 검색하시오.*/
+select s.scode, s.sname, c.lcode, c.lname, p.pname, e.grade
+from professors p , students s, courses c, enrollments e
+where p.pcode=c.instructor and e.scode = s.scode and c.lcode=e.lcode and e.grade>=80
+order by grade desc;
+
+/*알고리즘'을 강의하는 교수의 교수번호, 교수이름, 소속학과를 검색하시오. */
+select p.pcode,p.pname,p.dept
+from professors p, courses c
+where p.pcode=c.instructor and lname='알고리즘';
+
+/*전체 학생의 30% 이상이 수강신청한 강좌의 번호를 검색하시오.*/
+select lcode
+from couses c, enrollments e ,students s
+where c.lcode = e.lcode and count(s.scode) and count(*) >= (select count(*) * 0.3 from students);
+
+/*'1973'년생 학생들을 지도하는 교수들의 이름, 소속학과, 직급을 검색하시오.*/
+
+select *
+from students;
+
+select *
+from enrollments;
+
+select *
+from courses;
