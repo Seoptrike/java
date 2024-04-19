@@ -20,7 +20,6 @@ public class Sub {
 					String menu= scanner.nextLine();
 					switch(menu) {
 					case "1" :
-						SaleVO svo =new SaleVO();
 						System.out.print("상품코드>");
 						String code1 =scanner.nextLine();
 						ProductVO vo1 =pdao.read(code1);
@@ -31,38 +30,49 @@ public class Sub {
 							String today = sdf.format(new Date());
 							System.out.print("판매일: "+ today + ">" );
 							String date = scanner.nextLine();
-							if (date.equals("")) {
-								date = sdf.format(new Date());
-							}
-							SimpleDateFormat newDate = new SimpleDateFormat("yyyyMMdd");
-							Date saleDate = null;
-							try {
-								saleDate = newDate.parse(date);
-							} catch (ParseException e) {
-								System.out.println("잘못된 형식의 날짜입니다. yyyyMMdd 형식으로 입력하세요.");
-								return; // 잘못된 형식의 날짜일 경우 메소드 실행 종료
-							}
-							java.sql.Date saleSqlDate = new java.sql.Date(saleDate.getTime());
-							svo.setSale_date(saleSqlDate);
 							System.out.print("판매가: "+ vo1.getPrice()+">" );
 							String price =scanner.nextLine();
 							System.out.println("수량>");
 							String qnt = scanner.nextLine();
+							SaleVO svo =new SaleVO();
 							svo.setCode(code1);
+							SimpleDateFormat newDate = new SimpleDateFormat("yyyyMMdd");
+							Date saleDate = null;
+							try {
+								saleDate = (Date) newDate.parse(date);
+							} catch (ParseException e) {
+								e.printStackTrace();
+							}
+							java.sql.Date saleSqlDate = new java.sql.Date(saleDate.getTime());
+							
+							if(date.equals("")) {
+								saleSqlDate = new java.sql.Date(System.currentTimeMillis());
+								svo.setSale_date(saleSqlDate);
+							}else {
+								 Date saleDate1 = null;
+								try {
+									saleDate1 = new SimpleDateFormat("yyyyMMdd").parse(date);
+								} catch (ParseException e) {
+									e.printStackTrace();
+								}
+					                saleSqlDate = new java.sql.Date(saleDate1.getTime());
+							}
 							svo.setName(vo1.getName());
 							if(qnt.equals("")) {
 								svo.setQnt(1);
 							}else {
-								svo.setQnt(Integer.parseInt(qnt));
+							svo.setQnt(Integer.parseInt(qnt));
 							}
 							if(price.equals("")) {
 								svo.setPrice(vo1.getPrice());
 							}else {
-								svo.setPrice(Integer.parseInt(price));
+							svo.setPrice(Integer.parseInt(price));
 							}
+							
 							dao.insert(svo);
 							System.out.println("매출등록완료!");
 							System.out.println(svo.toString());
+							
 						}
 						break;
 					case "2" :
