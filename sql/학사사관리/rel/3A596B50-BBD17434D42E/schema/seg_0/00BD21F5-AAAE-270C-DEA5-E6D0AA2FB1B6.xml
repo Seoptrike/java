@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SchemaObject class="oracle.dbtools.crest.model.design.relational.SchemaObject" name="HAKSA" directorySegmentName="seg_0" id="00BD21F5-AAAE-270C-DEA5-E6D0AA2FB1B6">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:01 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</SchemaObject>

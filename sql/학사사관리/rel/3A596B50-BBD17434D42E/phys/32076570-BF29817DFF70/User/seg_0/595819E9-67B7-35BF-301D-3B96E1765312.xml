@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<UserOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UserOraclev10g" name="HAKSA" directorySegmentName="seg_0" id="595819E9-67B7-35BF-301D-3B96E1765312">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjName>HAKSA</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:01 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<schemaObject>00BD21F5-AAAE-270C-DEA5-E6D0AA2FB1B6</schemaObject>
+<defTableSpace>55A037CA-CF81-15A3-1516-B97AE9C7093F</defTableSpace>
+<privileges>UNLIMITED TABLESPACE</privileges>
+</UserOraclev10g>

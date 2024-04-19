@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="87E2196D-734B-689E-138B-A02816CDBAC2" schemaObject="00BD21F5-AAAE-270C-DEA5-E6D0AA2FB1B6" name="STUDENTS">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>HAKSA</sourceObjSchema>
+<sourceObjName>STUDENTS</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SCODE" id="96D40084-3A4F-2C02-2444-7A3766B27F59">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>STUDENTS</sourceObjSchema>
+<sourceObjName>SCODE</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>8 BYTE</dataTypeSize>
+<ownDataTypeParameters>8 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SNAME" id="8BB447EB-0F77-C6FF-2E35-E7DAA3F0BCAF">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>STUDENTS</sourceObjSchema>
+<sourceObjName>SNAME</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 BYTE</dataTypeSize>
+<ownDataTypeParameters>15 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPT" id="13BFA2F7-DCBF-9310-69EA-5B8DC9432316">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>STUDENTS</sourceObjSchema>
+<sourceObjName>DEPT</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="YEAR" id="4B4426E5-AD71-8BEE-8AF2-61F34A6E25D2">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>STUDENTS</sourceObjSchema>
+<sourceObjName>YEAR</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>*</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<defaultValue>1</defaultValue>
+<ownDataTypeParameters>,*,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BIRTHDAY" id="DA950133-AEFB-CE90-1BAA-F2D59F06B86D">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>STUDENTS</sourceObjSchema>
+<sourceObjName>BIRTHDAY</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ADVISOR" id="3D5EF205-D321-BE33-9858-6A064B558EBF">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>STUDENTS</sourceObjSchema>
+<sourceObjName>ADVISOR</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>3 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="905E35B4-9868-FEB8-311D-6F0E1BDA73D0" referredColumn="AD9627C6-45A4-1E63-442D-B83844D2904A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="51A98EE7-0F87-DAA6-D778-307B52C8695D" schemaObject="00BD21F5-AAAE-270C-DEA5-E6D0AA2FB1B6" name="STUDENTS_PK">
+<sourceConnName>%ED%95%99%EC%82%AC%EA%B4%80%EB%A6%AC</sourceConnName>
+<sourceObjSchema>HAKSA</sourceObjSchema>
+<sourceObjName>SYS_C007068</sourceObjName>
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="96D40084-3A4F-2C02-2444-7A3766B27F59"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0294A07E-8EBE-BD2A-A75F-042037BC78E7" name="SYS_C007069">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3D5EF205-D321-BE33-9858-6A064B558EBF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

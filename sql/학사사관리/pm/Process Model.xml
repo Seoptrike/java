@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="1083A400-571D-915D-9E4D-905772EA11D2">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 02:28:39 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

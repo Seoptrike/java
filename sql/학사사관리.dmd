@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="학사사관리" id="50E8FE89-4F9E-466A-D291-A662A81349FB" version="3.5">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 02:28:39 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>50E8FE89-4F9E-466A-D291-A662A81349FB</designId>
+</OSDM_Design>

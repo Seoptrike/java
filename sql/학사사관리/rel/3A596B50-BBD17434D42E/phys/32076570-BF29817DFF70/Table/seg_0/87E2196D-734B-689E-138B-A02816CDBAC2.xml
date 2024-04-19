@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="STUDENTS" directorySegmentName="seg_0" id="87E2196D-734B-689E-138B-A02816CDBAC2">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<schemaObject>00BD21F5-AAAE-270C-DEA5-E6D0AA2FB1B6</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>0E041F3D-FDDB-3086-9BD1-495305A34AFD</segment>
+<tableSpace>55A037CA-CF81-15A3-1516-B97AE9C7093F</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DEPT" id="13BFA2F7-DCBF-9310-69EA-5B8DC9432316">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ADVISOR" id="3D5EF205-D321-BE33-9858-6A064B558EBF">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="YEAR" id="4B4426E5-AD71-8BEE-8AF2-61F34A6E25D2">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<defaultValue>1</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="SNAME" id="8BB447EB-0F77-C6FF-2E35-E7DAA3F0BCAF">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SCODE" id="96D40084-3A4F-2C02-2444-7A3766B27F59">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BIRTHDAY" id="DA950133-AEFB-CE90-1BAA-F2D59F06B86D">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C007069" id="0294A07E-8EBE-BD2A-A75F-042037BC78E7">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="STUDENTS_PK" id="51A98EE7-0F87-DAA6-D778-307B52C8695D">
+<createdBy>KOSMO</createdBy>
+<createdTime>2024-04-19 09:33:29 UTC</createdTime>
+<ownerDesignName>학사사관리</ownerDesignName>
+<schemaObject>00BD21F5-AAAE-270C-DEA5-E6D0AA2FB1B6</schemaObject>
+<segment>893C7252-0D0F-1019-3EB2-AFA0C0DD421F</segment>
+<tableSpace>55A037CA-CF81-15A3-1516-B97AE9C7093F</tableSpace>
+<indexSegment>893C7252-0D0F-1019-3EB2-AFA0C0DD421F</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>
